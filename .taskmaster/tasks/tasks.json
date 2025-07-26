@@ -1,0 +1,599 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Project Setup and Development Environment",
+        "description": "Initialize Next.js 14+ project with TypeScript, configure development environment, and setup essential tooling",
+        "details": "Create Next.js 14 project using `npx create-next-app@latest taskflow-pro --typescript --tailwind --eslint --app`. Configure TypeScript strict mode, setup ESLint with Next.js rules, Prettier formatting, and Husky pre-commit hooks. Install and configure shadcn/ui components with `npx shadcn-ui@latest init`. Setup project structure with apps/web directory, components organization (ui/, tasks/, pomodoro/, analytics/), and lib utilities. Configure Tailwind CSS v4 with custom theme tokens using OKLCH color space. Initialize Git repository with proper .gitignore for Next.js projects.",
+        "testStrategy": "Verify project builds successfully with `npm run build`, TypeScript compilation passes without errors, ESLint and Prettier run without issues, and all development scripts function correctly. Test hot reload and development server startup.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize Next.js 14 Project with TypeScript",
+            "description": "Create new Next.js 14 project using create-next-app with TypeScript, Tailwind CSS, and ESLint configuration",
+            "dependencies": [],
+            "details": "Run `npx create-next-app@latest taskflow-pro --typescript --tailwind --eslint --app` to initialize the project. Configure TypeScript with strict mode enabled in tsconfig.json. Verify all initial dependencies are installed correctly and project structure is created properly.",
+            "status": "done",
+            "testStrategy": "Verify project creates successfully, TypeScript compilation works without errors, and development server starts with `npm run dev`. Check that all default Next.js 14 app directory features are working."
+          },
+          {
+            "id": 2,
+            "title": "Configure Development Tooling and Code Quality",
+            "description": "Setup ESLint, Prettier, and Husky pre-commit hooks for code quality and consistency",
+            "dependencies": ["1.1"],
+            "details": "Configure ESLint with Next.js specific rules and TypeScript support. Install and configure Prettier with consistent formatting rules. Setup Husky for pre-commit hooks to run linting and formatting checks. Create .eslintrc.json, .prettierrc, and configure package.json scripts for linting and formatting.",
+            "status": "done",
+            "testStrategy": "Test ESLint catches common errors, Prettier formats code consistently, and Husky prevents commits when linting fails. Verify all scripts run without errors: `npm run lint`, `npm run format`."
+          },
+          {
+            "id": 3,
+            "title": "Install and Configure shadcn/ui Component Library",
+            "description": "Setup shadcn/ui component system with proper theming and base components",
+            "dependencies": ["1.2"],
+            "details": "Run `npx shadcn-ui@latest init` to setup shadcn/ui. Configure components.json with proper paths and styling preferences. Install essential base components like Button, Input, Card, and Dialog. Setup proper import aliases and component organization structure.",
+            "status": "done",
+            "testStrategy": "Verify shadcn/ui installation completed successfully, base components render correctly, and theming system works as expected. Test component imports and styling consistency."
+          },
+          {
+            "id": 4,
+            "title": "Setup Project Directory Structure and Organization",
+            "description": "Create organized folder structure for components, utilities, and application features",
+            "dependencies": ["1.3"],
+            "details": "Create apps/web directory structure with organized component folders: components/ui/, components/tasks/, components/pomodoro/, components/analytics/. Setup lib/ directory for utilities, hooks, and shared logic. Create proper barrel exports (index.ts files) for clean imports. Organize pages and API routes following Next.js 14 app directory conventions.",
+            "status": "done",
+            "testStrategy": "Verify all directories are created with proper structure, barrel exports work correctly, and import paths are clean and consistent. Test that the organization supports scalable development."
+          },
+          {
+            "id": 5,
+            "title": "Configure Tailwind CSS v4 with Custom Theme",
+            "description": "Setup Tailwind CSS v4 with custom theme tokens using OKLCH color space and initialize Git repository",
+            "dependencies": ["1.4"],
+            "details": "Configure Tailwind CSS v4 with custom theme tokens using OKLCH color space for better color consistency. Create custom color palette, typography scale, and spacing system. Setup proper .gitignore for Next.js projects excluding node_modules, .next, .env files. Initialize Git repository and create initial commit with proper project structure.",
+            "status": "done",
+            "testStrategy": "Test custom Tailwind theme works correctly, OKLCH colors render properly across different browsers, Git repository initializes with appropriate .gitignore, and initial commit includes all necessary files while excluding build artifacts."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Database Schema Design and Prisma Setup",
+        "description": "Design PostgreSQL database schema with Prisma ORM, implement migrations, and setup database connection",
+        "details": "Install Prisma CLI and client: `npm install prisma @prisma/client`. Initialize Prisma with `npx prisma init`. Design database schema with User (id, email, name, createdAt, updatedAt, preferences), Project (id, name, description, color, userId, createdAt), Task (id, title, description, status, priority, dueDate, estimatedTime, actualTime, projectId, parentId, createdAt), PomodoroSession (id, taskId, duration, startTime, endTime, completed, notes), and Analytics (id, userId, date, tasksCompleted, pomodorosCompleted, focusTime) models. Setup relationships with proper foreign keys and indexes. Configure PostgreSQL connection string in .env file. Generate Prisma client and run initial migration.",
+        "testStrategy": "Test database connection, verify schema generation with `npx prisma db push`, validate all relationships work correctly, test CRUD operations on each model, and ensure migrations run successfully. Use Prisma Studio to inspect database structure.",
+        "priority": "high",
+        "dependencies": [1],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Prisma Installation and Initialization",
+            "description": "Install Prisma CLI and client, initialize Prisma project with PostgreSQL configuration",
+            "dependencies": [],
+            "details": "Install required packages: `npm install prisma @prisma/client`. Initialize Prisma with `npx prisma init`. Configure PostgreSQL connection string in .env file. Set up initial Prisma configuration in schema.prisma with PostgreSQL provider and basic client configuration.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Database Schema Design with All Models",
+            "description": "Design and implement complete database schema including User, Project, Task, PomodoroSession, and Analytics models",
+            "dependencies": ["2.1"],
+            "details": "Create User model (id, email, name, createdAt, updatedAt, preferences). Design Project model (id, name, description, color, userId, createdAt). Implement Task model (id, title, description, status, priority, dueDate, estimatedTime, actualTime, projectId, parentId, createdAt). Create PomodoroSession model (id, taskId, duration, startTime, endTime, completed, notes). Design Analytics model (id, userId, date, tasksCompleted, pomodoroSessions, totalFocusTime).",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Relationship Configuration and Migrations",
+            "description": "Configure model relationships, foreign keys, and run database migrations",
+            "dependencies": ["2.2"],
+            "details": "Set up one-to-many relationship between User and Projects. Configure one-to-many between Project and Tasks. Implement self-referencing relationship for Task parent/child hierarchy. Create one-to-many between Task and PomodoroSessions. Set up User to Analytics relationship. Configure proper foreign key constraints and cascading deletes. Generate and run initial migration with `npx prisma migrate dev --name init`.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Connection Testing with CRUD Validation",
+            "description": "Test database connection, validate schema generation, and perform CRUD operations testing",
+            "dependencies": ["2.3"],
+            "details": "Verify database connection with `npx prisma db push`. Test schema generation and validate all tables created correctly. Use Prisma Studio (`npx prisma studio`) to inspect database structure. Create test CRUD operations for each model to ensure relationships work properly. Validate foreign key constraints and cascading behavior. Test data integrity and relationship consistency across all models.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Authentication System with NextAuth.js",
+        "description": "Implement user authentication, registration, and session management using NextAuth.js",
+        "details": "Install NextAuth.js: `npm install next-auth @next-auth/prisma-adapter`. Configure NextAuth.js with Prisma adapter for database sessions. Setup authentication providers (email/password, Google OAuth). Create authentication API routes in app/api/auth/[...nextauth]/route.ts. Implement user registration with bcrypt password hashing (`npm install bcrypt @types/bcrypt`). Create login/register forms using shadcn/ui form components with Zod validation (`npm install zod @hookform/resolvers`). Setup middleware for route protection. Configure JWT secrets and session settings. Implement user profile management and settings pages.",
+        "testStrategy": "Test user registration flow, login/logout functionality, session persistence across browser restarts, protected route access, password reset flow, and OAuth provider integration. Verify JWT token security and session management works correctly.",
+        "priority": "high",
+        "dependencies": [2],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "NextAuth.js setup and configuration",
+            "description": "Install and configure NextAuth.js with Prisma adapter for database sessions",
+            "dependencies": [],
+            "details": "Install NextAuth.js: `npm install next-auth @next-auth/prisma-adapter`. Create NextAuth configuration file with Prisma adapter setup. Configure environment variables for NextAuth secret and database URL. Setup NextAuth API route at app/api/auth/[...nextauth]/route.ts with proper configuration for providers, callbacks, and session strategy.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Authentication provider integration",
+            "description": "Setup email/password and OAuth authentication providers",
+            "dependencies": ["3.1"],
+            "details": "Configure email/password provider with credentials validation. Setup Google OAuth provider with client ID and secret. Install bcrypt for password hashing: `npm install bcrypt @types/bcrypt`. Create user registration logic with password encryption. Configure provider callbacks for user creation and session management.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "User registration and login forms",
+            "description": "Create authentication UI components with form validation",
+            "dependencies": ["3.2"],
+            "details": "Install form dependencies: `npm install zod @hookform/resolvers`. Create LoginForm and RegisterForm components using shadcn/ui form components. Implement Zod validation schemas for email, password requirements. Build responsive authentication pages with proper error handling and loading states. Add form submission logic with NextAuth signIn/signOut functions.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Session management and middleware",
+            "description": "Implement session persistence and route protection middleware",
+            "dependencies": ["3.3"],
+            "details": "Create middleware.ts for protecting authenticated routes. Setup session provider wrapper for the application. Implement session checks for protected pages and API routes. Create useSession hook integration throughout the app. Configure session callbacks for JWT token management and user data persistence.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "User profile management features",
+            "description": "Build user profile pages and account management functionality",
+            "dependencies": ["3.4"],
+            "details": "Create user profile page with editable fields (name, email, avatar). Implement password change functionality with current password verification. Build account settings page with security options. Create user avatar upload functionality. Add account deletion feature with proper data cleanup and confirmation flow.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Core Task Management System",
+        "description": "Build fundamental task CRUD operations, task hierarchy, and basic task management features",
+        "details": "Create task API routes in app/api/tasks with full CRUD operations using Prisma. Implement task creation with title, description, priority (Critical/High/Medium/Low), due date, estimated time, and project assignment. Build nested subtask functionality with unlimited hierarchy levels using adjacency list pattern. Create TaskList, TaskItem, and TaskForm components using shadcn/ui (Card, Button, Input, Textarea, Select, DatePicker). Implement task status management (Not Started, In Progress, Blocked, Completed, Archived). Add bulk operations (select multiple, bulk delete, bulk move). Implement task search and filtering by status, priority, project, and tags. Setup task reordering with drag-and-drop using @dnd-kit/core.",
+        "testStrategy": "Test all CRUD operations, verify nested task relationships work correctly, test task filtering and search functionality, validate bulk operations, test drag-and-drop reordering, and ensure data consistency across operations. Test performance with large numbers of tasks.",
+        "priority": "high",
+        "dependencies": [3],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Task API routes and CRUD operations",
+            "description": "Create comprehensive task API endpoints with full CRUD functionality using Prisma ORM",
+            "dependencies": [],
+            "details": "Build API routes in app/api/tasks/ for creating, reading, updating, and deleting tasks. Implement task creation with fields: title, description, priority (Critical/High/Medium/Low), due date, estimated time, and project assignment. Add validation using Zod schemas. Include error handling and proper HTTP status codes. Implement bulk operations for updating multiple tasks at once.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Task hierarchy and nested relationships",
+            "description": "Implement unlimited task hierarchy using adjacency list pattern for parent-child relationships",
+            "dependencies": ["4.1"],
+            "details": "Extend Task model to include parentId field for hierarchical structure. Implement recursive queries to fetch task trees with all nested subtasks. Build API endpoints for moving tasks between hierarchy levels. Add validation to prevent circular dependencies. Implement depth calculation and hierarchy path tracking for efficient queries.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Task UI components and forms",
+            "description": "Build responsive task management UI components using shadcn/ui library",
+            "dependencies": ["4.2"],
+            "details": "Create TaskList component displaying tasks in hierarchical structure. Build TaskItem component with inline editing capabilities. Implement TaskForm component using shadcn/ui Card, Button, Input, Textarea, Select, and DatePicker components. Add task creation modal with all form fields and validation. Include priority indicators and visual hierarchy representation.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Status management and bulk operations",
+            "description": "Implement task status tracking and bulk update functionality",
+            "dependencies": ["4.3"],
+            "details": "Build status management system with states: Not Started, In Progress, Blocked, Completed. Implement bulk status updates for multiple selected tasks. Add bulk delete functionality with confirmation dialogs. Create status change tracking and history. Include progress indicators for parent tasks based on subtask completion rates.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Search and filtering functionality",
+            "description": "Build advanced search and filtering system for task discovery and organization",
+            "dependencies": ["4.4"],
+            "details": "Implement full-text search across task titles and descriptions. Build filter system by status, priority, due date, and project. Add saved search functionality with custom filter combinations. Implement tag-based filtering with multi-select options. Create smart filters for overdue, today's tasks, and high priority items.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Drag-and-drop task reordering",
+            "description": "Implement intuitive drag-and-drop interface for task reorganization and hierarchy management",
+            "dependencies": ["4.5"],
+            "details": "Integrate drag-and-drop library (like @dnd-kit/core) for task reordering. Enable dragging tasks to change order within same hierarchy level. Implement dropping tasks onto other tasks to create parent-child relationships. Add visual feedback during drag operations with drop zones and hover states. Include undo functionality for accidental moves.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Project Management and Organization System",
+        "description": "Implement project workspaces, categorization, and task organization features",
+        "details": "Create Project model API routes with CRUD operations. Build ProjectSidebar component using shadcn/ui navigation components with theme-aware sidebar color tokens. Implement project creation with name, description, color coding, and custom labels. Create project dashboard showing task statistics and progress. Build tag system for flexible task organization with multi-select tagging. Implement smart lists (Today, This Week, Overdue, High Priority) with dynamic filtering. Create multiple view modes: List view (default), Kanban board using @dnd-kit, Calendar view with react-big-calendar, and basic Gantt chart view. Add project-level settings and permissions. Implement task dependencies and prerequisite relationships visualization.",
+        "testStrategy": "Test project creation and management, verify task organization across projects, test all view modes function correctly, validate tag system and filtering, test smart lists update dynamically, and ensure project permissions work as expected.",
+        "priority": "medium",
+        "dependencies": [4],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Project CRUD API and Data Model",
+            "description": "Create project API routes and database operations for full CRUD functionality",
+            "dependencies": [],
+            "details": "Implement /api/projects endpoints with GET, POST, PUT, DELETE operations using Prisma. Create project creation with name, description, color coding, and custom labels. Build project dashboard showing task statistics and progress. Ensure proper validation and error handling for all operations.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Project Sidebar and Navigation Components",
+            "description": "Build project navigation sidebar with theme-aware design and project switching",
+            "dependencies": ["5.1"],
+            "details": "Create ProjectSidebar component using shadcn/ui navigation components with theme-aware sidebar color tokens. Implement project list display, active project highlighting, and project switching functionality. Include project creation button and recent projects quick access.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Tag System and Multi-select Functionality",
+            "description": "Implement flexible tagging system with multi-select capabilities for task organization",
+            "dependencies": ["5.1"],
+            "details": "Create tag management API endpoints and database schema. Build tag creation, editing, and deletion functionality. Implement multi-select tag interface using shadcn/ui components. Create tag filtering and search capabilities across projects and tasks.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Smart Lists and Dynamic Filtering",
+            "description": "Create intelligent task lists with dynamic filtering based on date, priority, and status",
+            "dependencies": ["5.1", "5.3"],
+            "details": "Implement smart lists (Today, This Week, Overdue, High Priority) with dynamic filtering logic. Create filtering API endpoints that work with tags and project context. Build filter UI components with real-time updates and saved filter presets.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Multiple View Modes (List, Kanban, Calendar, Gantt)",
+            "description": "Implement different visualization modes for task and project management",
+            "dependencies": ["5.1", "5.2", "5.4"],
+            "details": "Create ListView, KanbanView, CalendarView, and GanttView components using appropriate shadcn/ui and specialized libraries. Implement view switching with persistent user preferences. Ensure all views support drag-and-drop functionality and real-time updates across different view modes.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Pomodoro Timer Core Functionality",
+        "description": "Build integrated Pomodoro timer with basic timing features and task association",
+        "details": "Create PomodoroTimer component with 25-minute work sessions and 5-minute breaks. Implement timer controls (start, pause, resume, stop, skip) using React hooks for state management. Build PomodoroSession API routes to track completed sessions. Create timer integration with tasks - one-click start from any task item. Implement automatic time logging to associated tasks with actual vs estimated tracking. Add visual countdown display with circular progress indicator using SVG or Canvas. Create audio notifications for session transitions using Web Audio API or HTML5 audio. Implement basic break management with long breaks (15-30 minutes) after 4 pomodoros. Add session notes functionality for reflection after each pomodoro. Store session data in database with start/end times, completion status, and associated task ID.",
+        "testStrategy": "Test timer accuracy and functionality across different session lengths, verify task-timer integration works correctly, test audio notifications in different browsers, validate session data persistence, test timer behavior during page refresh, and ensure accurate time tracking and logging.",
+        "priority": "high",
+        "dependencies": [4],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Timer Component with Basic Controls and State Management",
+            "description": "Create PomodoroTimer component with core timing functionality and user controls",
+            "dependencies": [],
+            "details": "Build PomodoroTimer React component with 25-minute work sessions and 5-minute breaks. Implement timer controls (start, pause, resume, stop, skip) using React hooks for precise state management. Create custom useTimer hook for countdown logic with accurate timing using requestAnimationFrame or setInterval. Handle timer state persistence across component re-renders. Include timer configuration for work/break durations and automatic session transitions.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Session Tracking API and Database Integration",
+            "description": "Build backend API for Pomodoro session persistence and data management",
+            "dependencies": ["6.1"],
+            "details": "Create PomodoroSession API routes with CRUD operations for session tracking. Design database schema for storing completed sessions with timestamps, duration, session type (work/break), and associated task ID. Implement session history endpoints for analytics and progress tracking. Add validation for session data and error handling for database operations. Create session statistics calculations for productivity insights.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Task-Timer Integration and Time Logging",
+            "description": "Connect Pomodoro timer with task management system for seamless workflow",
+            "dependencies": ["6.1", "6.2"],
+            "details": "Implement one-click timer start from any task item with automatic task association. Build automatic time logging system that tracks actual vs estimated time on tasks. Create task-timer linking with real-time updates to task progress. Implement time tracking accuracy with session completion validation. Add timer context to task items showing active/recent Pomodoro sessions and cumulative time spent.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Audio Notifications with Visual Progress Indicators",
+            "description": "Create engaging user interface with audio cues and visual feedback systems",
+            "dependencies": ["6.1"],
+            "details": "Build visual countdown display with circular progress indicator using SVG or Canvas for smooth animations. Implement audio notifications for session start/end using Web Audio API with customizable notification sounds. Create visual timer states with color coding for work/break periods. Add browser notification support for background timer alerts. Include accessibility features for timer state announcements and keyboard navigation support.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Advanced Pomodoro Features and Focus Tools",
+        "description": "Enhance Pomodoro timer with customization options, focus mode, and productivity features",
+        "details": "Implement customizable timer durations (15, 25, 45, 60 minutes) with user preferences storage. Create timer presets for different work types (Deep Work, Quick Tasks, Review, etc.). Build focus mode with optional website/app blocking using browser APIs where available. Add ambient sound integration with nature sounds, white noise, and focus music (use Web Audio API or integrate with external services). Implement smart break suggestions based on work intensity and session history. Create interruption tracking system - log external interruptions during sessions. Add timer statistics showing daily/weekly pomodoro completion rates. Build session quality rating system for user feedback. Implement automatic task switching for planned work sessions. Create Pomodoro productivity recommendations based on task complexity analysis.",
+        "testStrategy": "Test all timer customization options save correctly, verify focus mode activates properly, test ambient sounds work across browsers, validate interruption tracking accuracy, test session quality feedback system, and ensure smart recommendations are relevant and helpful.",
+        "priority": "medium",
+        "dependencies": [6],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Customizable Timer Settings and Presets",
+            "description": "Implement customizable timer durations and user-defined presets for different work types",
+            "dependencies": [],
+            "details": "Create timer customization interface allowing users to set custom work/break durations (15, 25, 45, 60 minutes). Build preset system for different work types (Deep Work, Quick Tasks, Review, Creative Work, etc.) with recommended timer configurations. Implement user preferences storage in localStorage/database for timer settings persistence. Create preset management UI with create, edit, delete, and duplicate functionality. Add quick preset selection in timer interface with visual preset indicators.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Focus Mode with Optional Blocking Features",
+            "description": "Build focus mode with website/app blocking capabilities using browser APIs",
+            "dependencies": ["7.1"],
+            "details": "Implement focus mode toggle that activates blocking features during timer sessions. Use browser extension APIs or Content Security Policy where available to block distracting websites. Create whitelist/blacklist management for allowed/blocked sites during focus sessions. Build notification blocking integration to minimize interruptions. Implement progressive focus mode levels (light, medium, strict) with different blocking intensities. Add focus mode status indicator and emergency override functionality.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Ambient Sound Integration and Web Audio API",
+            "description": "Integrate ambient sounds and nature sounds using Web Audio API for enhanced focus",
+            "dependencies": ["7.1"],
+            "details": "Implement Web Audio API integration for ambient sound playback with nature sounds, white noise, and focus music. Create sound library with preloaded audio files or integrate with external audio services. Build audio controls with volume adjustment, sound mixing, and fade in/out effects. Implement sound preset combinations that sync with timer presets. Add audio visualization components and sound customization options. Create offline audio caching for consistent playback experience.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Interruption Tracking and Session Quality Rating",
+            "description": "Track interruptions during focus sessions and implement session quality feedback system",
+            "dependencies": ["7.2", "7.3"],
+            "details": "Build interruption tracking system that monitors focus session quality and user interactions. Implement session rating interface allowing users to rate focus quality (1-5 stars) with optional notes. Create interruption logging with timestamp, duration, and interruption type categorization. Build session analytics showing interruption patterns and focus trends over time. Implement automatic quality scoring based on completion rate, interruptions, and user behavior. Add session review interface with improvement suggestions.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Smart Recommendations Based on Analytics",
+            "description": "Develop intelligent recommendation system using session data and productivity analytics",
+            "dependencies": ["7.4"],
+            "details": "Create recommendation engine analyzing user productivity patterns, session completion rates, and interruption data. Implement smart break suggestions based on work intensity, session history, and time of day patterns. Build adaptive timer recommendations that suggest optimal work/break durations based on historical performance. Create focus improvement suggestions analyzing session quality trends and successful patterns. Implement personalized productivity tips and habit formation recommendations. Add notification system for proactive productivity insights and recommendations.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Analytics Dashboard and Productivity Insights",
+        "description": "Build comprehensive analytics system with productivity metrics, reporting, and data visualization",
+        "details": "Create Analytics model and API routes for aggregating productivity data. Build dashboard using Chart.js or Recharts with the 5-color chart palette from theme. Implement daily/weekly/monthly productivity trend visualization showing tasks completed, pomodoros finished, and focus time. Create time distribution charts across projects, priorities, and tags. Build task completion rate analysis with historical comparisons. Implement focus quality scores based on interruptions and session completion rates. Create goal tracking system with achievement celebrations using confetti animations. Build productivity heatmap showing most/least productive hours and days. Add weekly/monthly report generation with actionable insights. Implement data export functionality (CSV, JSON) for external analysis. Create productivity streak tracking and gamification elements.",
+        "testStrategy": "Test all chart visualizations render correctly with real data, verify calculations for productivity metrics are accurate, test report generation and export functionality, validate goal tracking system, test performance with large datasets, and ensure charts are responsive and accessible.",
+        "priority": "medium",
+        "dependencies": [7],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Analytics Data Model and Aggregation APIs",
+            "description": "Create Analytics model with API routes for aggregating productivity data and task completion metrics",
+            "dependencies": [],
+            "details": "Create Analytics model with fields for daily/weekly/monthly productivity metrics including tasks completed, pomodoros finished, focus time, and completion rates. Build API routes for data aggregation with efficient database queries using Prisma aggregations. Implement caching strategy for performance with large datasets. Create helper functions for calculating productivity scores, streaks, and trend analysis.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Chart Visualization Setup with Productivity Metrics",
+            "description": "Build dashboard using Chart.js or Recharts with productivity trend visualization and theme integration",
+            "dependencies": ["8.1"],
+            "details": "Install and configure Chart.js or Recharts for data visualization. Create dashboard components using shadcn/ui layout with 5-color chart palette from theme. Build productivity trend charts showing daily/weekly/monthly progress with tasks completed, pomodoros finished, and focus time. Implement responsive chart design with proper accessibility labels and tooltips.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Time Distribution and Completion Rate Analysis",
+            "description": "Create charts for time distribution across projects and task completion rate analysis with historical comparisons",
+            "dependencies": ["8.1"],
+            "details": "Build time distribution charts showing time spent across projects, priorities, and tags using pie and bar charts. Implement task completion rate analysis with historical trend comparisons and percentage calculations. Create focus quality scores based on interruptions and session completion rates. Add filtering options for different time periods and project scopes.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Goal Tracking and Gamification Features",
+            "description": "Implement goal setting system with achievements, badges, and productivity gamification elements",
+            "dependencies": ["8.1"],
+            "details": "Create goal-setting interface for daily/weekly/monthly productivity targets. Implement achievement system with badges for streaks, completion milestones, and productivity levels. Build progress tracking with visual indicators and celebration animations. Create leaderboard functionality for team environments and personal progress tracking with XP-style point system.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Report Generation and Data Export Functionality",
+            "description": "Build comprehensive reporting system with PDF/CSV export capabilities and customizable report templates",
+            "dependencies": ["8.2", "8.3"],
+            "details": "Create report generation system with customizable templates for productivity summaries. Implement PDF export using libraries like jsPDF or Puppeteer for formatted reports. Build CSV export functionality for raw data analysis. Create report scheduling system for automated weekly/monthly reports. Add report sharing capabilities with secure links.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Productivity Heatmaps with Streak Tracking",
+            "description": "Implement GitHub-style productivity heatmaps and streak tracking visualization with interactive calendar views",
+            "dependencies": ["8.1"],
+            "details": "Create GitHub-style heatmap calendar showing daily productivity intensity with color-coded activity levels. Implement streak tracking for consecutive productive days with streak counters and longest streak records. Build interactive calendar with hover details showing daily metrics. Add streak milestone celebrations and streak recovery features for maintaining motivation.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Real-time Synchronization and PWA Implementation",
+        "description": "Implement WebSocket real-time updates, offline functionality, and Progressive Web App features",
+        "details": "Setup WebSocket server using Socket.io or native WebSocket with Next.js API routes. Implement real-time task updates across multiple browser sessions/devices. Install and configure Redis for WebSocket scaling (`npm install redis ioredis`). Create PWA configuration with service worker for offline functionality. Implement optimistic updates for better UX during network issues. Setup background sync for offline task creation and updates. Create push notification system for task reminders and pomodoro alerts. Implement conflict resolution for simultaneous edits. Add connection status indicator in UI. Setup cache strategies for offline task access using IndexedDB or localStorage. Create data synchronization queue for offline actions. Implement PWA installation prompts and manifest configuration.",
+        "testStrategy": "Test real-time updates work across multiple browser sessions, verify offline functionality creates and syncs tasks correctly when reconnected, test PWA installation and offline access, validate conflict resolution works properly, test push notifications, and ensure WebSocket connections handle reconnection gracefully.",
+        "priority": "medium",
+        "dependencies": [8],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "WebSocket Server Setup and Real-time Communication",
+            "description": "Setup WebSocket server using Socket.io or native WebSocket with Next.js API routes for real-time task updates",
+            "dependencies": [],
+            "details": "Install Socket.io (`npm install socket.io socket.io-client @types/socket.io`). Create WebSocket API route in app/api/socket/route.ts. Implement real-time events for task creation, updates, deletion, and status changes. Setup client-side Socket.io connection with automatic reconnection. Create real-time context provider for React components. Handle connection states and error scenarios.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Redis Configuration for Scaling and Session Management",
+            "description": "Configure Redis for WebSocket scaling, session storage, and multi-instance support",
+            "dependencies": ["9.1"],
+            "details": "Install Redis packages (`npm install redis ioredis @types/redis`). Setup Redis connection with connection pooling and error handling. Configure Redis adapter for Socket.io scaling across multiple server instances. Implement Redis-based session storage for WebSocket connections. Create Redis pub/sub for cross-instance communication. Setup Redis health checks and monitoring.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "PWA Configuration with Service Workers and Offline Functionality",
+            "description": "Configure Progressive Web App features with service worker for offline functionality",
+            "dependencies": [],
+            "details": "Install PWA packages (`npm install next-pwa workbox-webpack-plugin`). Create service worker for caching strategies and offline functionality. Configure PWA manifest.json with app icons, theme colors, and display modes. Implement cache-first strategy for static assets and network-first for API calls. Create offline fallback pages and handle offline state detection. Setup app installation prompts.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Optimistic Updates and Conflict Resolution",
+            "description": "Implement optimistic UI updates and conflict resolution for better user experience during network issues",
+            "dependencies": ["9.1", "9.3"],
+            "details": "Create optimistic update system that immediately reflects changes in UI. Implement conflict resolution algorithms for simultaneous edits from multiple clients. Create local state management for pending operations during offline mode. Implement automatic retry mechanisms for failed operations. Setup conflict detection using timestamps and version numbers. Create user-friendly conflict resolution UI.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Push Notification System",
+            "description": "Setup push notification system for task reminders and real-time alerts",
+            "dependencies": ["9.3"],
+            "details": "Install web push packages (`npm install web-push @types/web-push`). Generate VAPID keys for push service. Create notification API routes for subscription management and sending notifications. Implement service worker notification handlers. Create notification permission request flow. Setup notification scheduling for task reminders and deadlines. Create notification settings and preferences management.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Background Sync with Offline Queue Management",
+            "description": "Implement background sync functionality with offline operation queue management",
+            "dependencies": ["9.3", "9.4"],
+            "details": "Implement background sync API using service worker sync events. Create offline operation queue with IndexedDB storage. Setup automatic sync when network connection is restored. Implement operation queuing for CRUD operations during offline mode. Create sync status indicators and progress feedback. Handle sync failures and retry logic with exponential backoff. Setup periodic background sync for data consistency.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Deployment Configuration and Production Setup",
+        "description": "Setup Docker containerization, Coolify deployment configuration, and production optimization",
+        "details": "Create multi-stage Dockerfile optimizing for Next.js production build with minimal image size. Setup docker-compose.yml for local development with PostgreSQL and Redis containers. Create Coolify deployment configuration (coolify.json) with proper resource allocation, environment variables, and health checks. Configure production environment variables for database, authentication, and third-party services. Setup automated database migrations in container startup script. Implement health check endpoints (/api/health) for container orchestration. Configure Next.js production optimizations (image optimization, compression, caching headers). Setup error tracking with Sentry or similar service. Configure logging with structured logs for production monitoring. Create backup strategy for PostgreSQL data. Setup SSL certificate automation through Coolify. Configure CI/CD pipeline with GitHub Actions for automated testing and deployment.",
+        "testStrategy": "Test Docker build process and container startup, verify Coolify deployment works end-to-end, test all environment variables load correctly in production, validate health checks respond properly, test database migrations run automatically, verify SSL certificates work, test backup and restore procedures, and ensure monitoring and error tracking function correctly.",
+        "priority": "high",
+        "dependencies": [9],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Docker Containerization with Multi-stage Builds",
+            "description": "Create optimized multi-stage Dockerfile for Next.js production builds and setup docker-compose for local development",
+            "dependencies": [],
+            "details": "Create multi-stage Dockerfile with separate build and runtime stages to minimize image size. Use Node.js Alpine images for smaller footprint. Configure .dockerignore to exclude unnecessary files. Setup docker-compose.yml with PostgreSQL, Redis, and application containers. Include volume mounts for development and proper networking configuration. Optimize layer caching for faster rebuilds.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Coolify Deployment Configuration and Environment Setup",
+            "description": "Configure Coolify deployment with proper resource allocation, environment variables, and health checks",
+            "dependencies": ["10.1"],
+            "details": "Create coolify.json configuration file with resource limits, scaling settings, and deployment strategy. Setup environment variable management for production secrets (database URLs, API keys, authentication secrets). Configure health check endpoints and readiness probes. Setup database migration automation in container startup script. Configure proper networking and service discovery.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Production Optimization and Caching Strategies",
+            "description": "Implement production optimizations including CDN configuration, caching layers, and performance monitoring",
+            "dependencies": ["10.2"],
+            "details": "Configure Next.js production build optimizations (bundle analyzer, compression, image optimization). Setup Redis caching for database queries and session storage. Implement CDN configuration for static assets. Configure application-level caching strategies for API responses. Setup gzip/brotli compression and optimize asset delivery. Configure database connection pooling and query optimization.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Monitoring and Error Tracking Integration",
+            "description": "Setup comprehensive monitoring, logging, and error tracking for production environment",
+            "dependencies": ["10.3"],
+            "details": "Integrate error tracking service (Sentry or similar) for client and server-side error monitoring. Setup application performance monitoring (APM) with metrics collection. Configure structured logging with proper log levels and JSON formatting. Setup health check endpoints for uptime monitoring. Implement database performance monitoring and slow query tracking. Configure alerting for critical errors and performance degradation.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Automated Backup and SSL Configuration",
+            "description": "Setup automated database backups, SSL certificate management, and security configurations",
+            "dependencies": ["10.4"],
+            "details": "Configure automated PostgreSQL database backups with retention policies. Setup SSL certificate automation (Let's Encrypt or similar). Implement security headers configuration (HSTS, CSP, X-Frame-Options). Configure rate limiting and DDoS protection. Setup backup verification and restore testing procedures. Implement secrets management and rotation strategies.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "CI/CD Pipeline with GitHub Actions",
+            "description": "Create automated deployment pipeline with testing, building, and deployment stages",
+            "dependencies": ["10.5"],
+            "details": "Setup GitHub Actions workflow for automated testing, building, and deployment. Configure multi-stage pipeline with unit tests, integration tests, and build verification. Implement automated Docker image building and pushing to registry. Setup deployment automation to Coolify with rollback capabilities. Configure environment-specific deployments (staging/production). Implement automated database migration deployment and verification.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-26T07:17:04.559Z",
+      "updated": "2025-07-26T07:41:34.414Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

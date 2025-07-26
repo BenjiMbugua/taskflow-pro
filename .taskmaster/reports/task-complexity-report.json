@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "generatedAt": "2025-07-26T07:23:38.009Z",
+    "tasksAnalyzed": 10,
+    "totalTasks": 10,
+    "analysisCount": 10,
+    "thresholdScore": 5,
+    "projectName": "Taskmaster",
+    "usedResearch": false
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Project Setup and Development Environment",
+      "complexityScore": 4,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down into setup phases: Next.js initialization, tooling configuration, UI library setup, project structure organization, and Git initialization with theme configuration.",
+      "reasoning": "Medium complexity with well-defined setup steps. Already has 5 subtasks which appropriately cover the initialization process."
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Database Schema Design and Prisma Setup",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Divide into: Prisma installation and initialization, database schema design with all models, relationship configuration and migrations, and connection testing with CRUD validation.",
+      "reasoning": "Moderately complex requiring database design expertise, relationship modeling, and migration handling. Schema design decisions impact entire application."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Authentication System with NextAuth.js",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break into: NextAuth.js setup and configuration, authentication provider integration, user registration and login forms, session management and middleware, and user profile management features.",
+      "reasoning": "High complexity due to security considerations, multiple authentication methods, session management, and integration with database and UI components."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Core Task Management System",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Divide into: Task API routes and CRUD operations, task hierarchy and nested relationships, task UI components and forms, status management and bulk operations, search and filtering functionality, and drag-and-drop task reordering.",
+      "reasoning": "Very high complexity with multiple interconnected features: CRUD operations, hierarchical data structures, complex UI interactions, search/filtering, and drag-and-drop functionality."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Project Management and Organization System",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down into: Project CRUD API and data model, project sidebar and navigation components, tag system and multi-select functionality, smart lists and dynamic filtering, and multiple view modes (List, Kanban, Calendar, Gantt).",
+      "reasoning": "High complexity with multiple view modes, dynamic filtering, tag management, and complex UI components. Requires sophisticated state management and data visualization."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Pomodoro Timer Core Functionality",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Divide into: Timer component with basic controls and state management, session tracking API and database integration, task-timer integration and time logging, and audio notifications with visual progress indicators.",
+      "reasoning": "Moderately complex requiring precise timing logic, task integration, audio handling, and session persistence. Timer accuracy and state management are critical."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Advanced Pomodoro Features and Focus Tools",
+      "complexityScore": 7,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break into: Customizable timer settings and presets, focus mode with optional blocking features, ambient sound integration and Web Audio API, interruption tracking and session quality rating, and smart recommendations based on analytics.",
+      "reasoning": "High complexity with advanced features like Web Audio API, browser blocking capabilities, smart analytics, and complex user preference management."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Analytics Dashboard and Productivity Insights",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Divide into: Analytics data model and aggregation APIs, chart visualization setup with productivity metrics, time distribution and completion rate analysis, goal tracking and gamification features, report generation and data export functionality, and productivity heatmaps with streak tracking.",
+      "reasoning": "Very high complexity requiring data analytics, multiple chart types, complex calculations, gamification elements, and export functionality. Performance optimization needed for large datasets."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Real-time Synchronization and PWA Implementation",
+      "complexityScore": 9,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Break into: WebSocket server setup and real-time communication, Redis configuration for scaling and session management, PWA configuration with service workers and offline functionality, optimistic updates and conflict resolution, push notification system, and background sync with offline queue management.",
+      "reasoning": "Very high complexity involving real-time systems, offline functionality, conflict resolution, service workers, and push notifications. Requires expertise in WebSocket, PWA, and distributed systems."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Deployment Configuration and Production Setup",
+      "complexityScore": 8,
+      "recommendedSubtasks": 6,
+      "expansionPrompt": "Divide into: Docker containerization with multi-stage builds, Coolify deployment configuration and environment setup, production optimization and caching strategies, monitoring and error tracking integration, automated backup and SSL configuration, and CI/CD pipeline with GitHub Actions.",
+      "reasoning": "Very high complexity requiring DevOps expertise, containerization, deployment automation, monitoring setup, and production security considerations. Critical for application reliability."
+    }
+  ]
+}
