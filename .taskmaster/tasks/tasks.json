@@ -83,7 +83,7 @@
             "description": "Design and implement complete database schema including User, Project, Task, PomodoroSession, and Analytics models",
             "dependencies": ["2.1"],
             "details": "Create User model (id, email, name, createdAt, updatedAt, preferences). Design Project model (id, name, description, color, userId, createdAt). Implement Task model (id, title, description, status, priority, dueDate, estimatedTime, actualTime, projectId, parentId, createdAt). Create PomodoroSession model (id, taskId, duration, startTime, endTime, completed, notes). Design Analytics model (id, userId, date, tasksCompleted, pomodoroSessions, totalFocusTime).",
-            "status": "pending",
+            "status": "done",
             "testStrategy": ""
           },
           {
@@ -92,7 +92,7 @@
             "description": "Configure model relationships, foreign keys, and run database migrations",
             "dependencies": ["2.2"],
             "details": "Set up one-to-many relationship between User and Projects. Configure one-to-many between Project and Tasks. Implement self-referencing relationship for Task parent/child hierarchy. Create one-to-many between Task and PomodoroSessions. Set up User to Analytics relationship. Configure proper foreign key constraints and cascading deletes. Generate and run initial migration with `npx prisma migrate dev --name init`.",
-            "status": "pending",
+            "status": "in-progress",
             "testStrategy": ""
           },
           {
@@ -592,7 +592,7 @@
     ],
     "metadata": {
       "created": "2025-07-26T07:17:04.559Z",
-      "updated": "2025-07-26T07:53:13.163Z",
+      "updated": "2025-07-26T07:54:16.019Z",
       "description": "Tasks for master context"
     }
   }

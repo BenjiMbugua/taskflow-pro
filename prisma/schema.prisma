@@ -10,8 +10,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model User {
@@ -87,7 +87,7 @@ model PomodoroSession {
 model Analytics {
   id                 String   @id @default(cuid())
   userId             String
-  date               DateTime @db.Date
+  date               DateTime
   tasksCompleted     Int      @default(0)
   pomodoroSessions   Int      @default(0)
   totalFocusTime     Int      @default(0) // in minutes
